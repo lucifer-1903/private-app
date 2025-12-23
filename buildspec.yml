@@ -1,10 +1,5 @@
 version: 0.2
 
-env:
-  variables:
-    AWS_REGION: ap-south-1
-    ECR_REPO_NAME: my-static-app
-
 phases:
   pre_build:
     commands:
@@ -24,7 +19,3 @@ phases:
       - echo Pushing image to ECR...
       - docker push $ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO_NAME:latest
       - echo Build completed on `date`
-
-artifacts:
-  files:
-    - '**/*'
